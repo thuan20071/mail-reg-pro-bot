@@ -2858,9 +2858,17 @@ WEB_PORT = 8092
 
 @admin_only
 async def btn_webdash(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Khi chay tren Render: gui link public, kem key bao mat
+    _public = os.environ.get("RENDER_EXTERNAL_URL", "").strip().rstrip("/")
+    _dkey = os.environ.get("DASH_KEY", "").strip()
+    if _public:
+        _url = _public + (f"/?key={_dkey}" if _dkey else "/")
+        _open = f"Mở: {_url}"
+    else:
+        _open = f"Mở: <code>http://127.0.0.1:{WEB_PORT}</code>"
     await update.effective_message.reply_text(
         "🖥️ <b>WEB DASHBOARD</b> — quản lý mail trên trình duyệt\n\n"
-        f"Mở: <code>http://127.0.0.1:{WEB_PORT}</code>\n\n"
+        f"{_open}\n\n"
         "• Xem tất cả hộp thư, bấm đọc từng mail\n"
         "• OTP tự tách sẵn, chạm để copy\n"
         "• Tự làm mới mỗi 20 giây",
