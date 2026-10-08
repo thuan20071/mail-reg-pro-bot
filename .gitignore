@@ -1,0 +1,11 @@
+# Token local - KHONG up len GitHub
+token.txt
+# Python
+__pycache__/
+*.pyc
+# DB nhi phan - chi up seed.sql (text), bot tu dung lai khi deploy
+data/mailbot.db
+# File tam cua bot
+data/*.log
+data/bot.lock
+data/_restore_tmp.db
