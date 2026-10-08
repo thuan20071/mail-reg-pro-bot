@@ -1,0 +1,4 @@
+# Thu vien cho MAIL REG PRO bot (deploy Render)
+python-telegram-bot[job-queue]>=20.0
+flask>=3.0
+httpx>=0.24
